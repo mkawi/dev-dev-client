@@ -30,10 +30,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -60,4 +57,46 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+ul {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+header, footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer span {
+  font-size: 0.75rem;
+  color: rgb(182, 182, 182);
+}
+
+header ul, .article-details {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.article-card {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid gray;
+  margin: 1rem 0;
+}
+
+.article-card h2 {
+  margin: 1rem;
+}
+
+.article-details {
+  font-size: 0.75rem;
+  color: rgb(185, 185, 185);
+}
+
+.article-card a h2:hover {
+  color: white;
 }
