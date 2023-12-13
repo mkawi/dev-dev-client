@@ -9,8 +9,8 @@ export default function HomePage() {
 
 	useEffect(() => {
 		getArticles().then(({ data }) => {
-			setArticles(data.articles)
-			setIsLoading(false)
+			setArticles(data.articles);
+			setIsLoading(false);
 		});
 	}, []);
 
