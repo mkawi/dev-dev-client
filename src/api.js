@@ -16,4 +16,10 @@ async function getArticleById(id) {
 	return response;
 }
 
-export { getArticles, getArticleById };
+async function getArticleComments(id) {
+	const response = await devdevApi.get(`/articles/${id}/comments`);
+
+	return response;
+}
+
+export { getArticles, getArticleById, getArticleComments };
