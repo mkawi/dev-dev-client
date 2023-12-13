@@ -11,7 +11,7 @@ export default function ArticlePreview({ article }) {
 				<li>Posted by {author}</li>
 				<li>{date}</li>
 			</ul>
-			<Link to="/">
+            <Link to={`/${article_id}`}>
 				<h2>{title}</h2>
 			</Link>
 			<ul className="article-details">

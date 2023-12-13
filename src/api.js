@@ -10,4 +10,10 @@ async function getArticles() {
 	return response;
 }
 
-export { getArticles };
+async function getArticleById(id) {
+	const response = await devdevApi.get(`/articles/${id}`);
+
+	return response;
+}
+
+export { getArticles, getArticleById };

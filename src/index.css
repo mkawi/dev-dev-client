@@ -100,3 +100,7 @@ header ul, .article-details {
 .article-card a h2:hover {
   color: white;
 }
+
+img {
+  width: 100%;
+}
