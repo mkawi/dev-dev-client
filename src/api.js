@@ -22,4 +22,24 @@ async function getArticleComments(id) {
 	return response;
 }
 
-export { getArticles, getArticleById, getArticleComments };
+async function updateArticleVotes(id, vote) {
+	const response = await devdevApi.patch(`/articles/${id}`, {
+		inc_votes: vote,
+	});
+
+	return response;
+}
+
+async function getUsers() {
+	const response = await devdevApi.get(`/users`);
+
+	return response;
+}
+
+export {
+	getArticles,
+	getArticleById,
+	getArticleComments,
+	updateArticleVotes,
+	getUsers,
+};
