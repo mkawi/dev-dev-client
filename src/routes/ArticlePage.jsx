@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getArticleById, getArticleComments } from "../api";
+import { getArticleById, getArticleComments, updateArticleVotes } from "../api";
 
 import Comment from "../components/Comment";
+import { UserContext } from "../contexts/UserContext";
 
 export default function ArticlePage() {
 	const { article_id } = useParams();
+	const { user } = useContext(UserContext);
 
 	const [article, setArticle] = useState({});
 	const [comments, setComments] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [isVoted, setIsVoted] = useState(false);
 
 	const date = new Date(article.created_at).toLocaleDateString("en-gb");
 
@@ -20,9 +23,18 @@ export default function ArticlePage() {
 
 			getArticleComments(article_id).then(({ data }) =>
 				setComments(data.comments)
-			)
-		})
-	}, []);
+			);
+		});
+	}, [isVoted]);
+
+	function vote(vote_amount, event) {
+		if (isVoted) return;
+
+		updateArticleVotes(article_id, vote_amount).then(() => {
+			setIsVoted(true);
+			event.target.classList.add("voted");
+		});
+	}
 
 	return (
 		<main className="article-page">
@@ -39,6 +51,12 @@ export default function ArticlePage() {
 						<li>{article.comment_count} Comments</li>
 					</ul>
 					<p>{article.body}</p>
+					{user && (
+						<div className="voting-ui">
+							<button onClick={(e) => vote(1, e)}>Upvote +1</button>
+							<button onClick={(e) => vote(-1, e)}>Downvote -1</button>
+						</div>
+					)}
 					<h3 style={{ marginTop: "2.5rem" }}>
 						Comments{" "}
 						{comments.length && (
