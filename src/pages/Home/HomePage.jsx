@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
-import { getArticles } from "../api";
-import ArticlePreview from "../components/ArticlePreview";
+import { getArticles } from "../../utils/api";
+import ArticlePreview from "./ArticlePreview";
 
 export default function HomePage() {
 	const [articles, setArticles] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		getArticles().then(({ data }) => {
-			setArticles(data.articles);
+		getArticles().then(({ articles }) => {
+			setArticles(articles);
 			setIsLoading(false);
 		});
 	}, []);

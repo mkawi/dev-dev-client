@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getUsers } from "../api";
+import { getUsers } from "../utils/api";
 
 export const UserContext = createContext();
 
@@ -8,7 +8,7 @@ export default function UserProvider({ children }) {
 
     async function login(username) {
         const response = await getUsers()
-        const foundUser = response.data.users.find(singleuser => singleuser.username === username)
+        const foundUser = response.users.find(singleuser => singleuser.username === username)
 
         if (foundUser) setUser(foundUser)
 

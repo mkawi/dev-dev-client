@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getArticleById, getArticleComments, updateArticleVotes } from "../api";
+import { getArticleById, getArticleComments, updateArticleVotes } from "../../utils/api";
 
-import Comment from "../components/Comment";
-import { UserContext } from "../contexts/UserContext";
+import Comment from "./Comment";
+import { UserContext } from "../../contexts/UserContext";
 
 export default function ArticlePage() {
 	const { article_id } = useParams();
@@ -18,13 +18,13 @@ export default function ArticlePage() {
 	const date = new Date(article.created_at).toLocaleDateString("en-gb");
 
 	useEffect(() => {
-		getArticleById(article_id).then(({ data }) => {
-			setArticle(data.article);
+		getArticleById(article_id).then(({ article }) => {
+			setArticle(article);
+			setVotes(article.votes);
 			setIsLoading(false);
-			setVotes(data.article.votes);
 
-			getArticleComments(article_id).then(({ data }) =>
-				setComments(data.comments)
+			getArticleComments(article_id).then(({ comments }) =>
+				setComments(comments)
 			);
 		});
 	}, []);
