@@ -8,7 +8,7 @@ export default function UserProvider({ children }) {
 
     async function login(username) {
         const response = await getUsers()
-        const foundUser = await response.data.users.find(singleuser => singleuser.username === username)
+        const foundUser = response.data.users.find(singleuser => singleuser.username === username)
 
         if (foundUser) setUser(foundUser)
 
