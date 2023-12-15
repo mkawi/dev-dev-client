@@ -1,131 +1,174 @@
 :root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+	font-weight: 500;
+	color: #646cff;
+	text-decoration: inherit;
 }
 
 a:hover {
-  color: #535bf2;
+	color: #535bf2;
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
+	margin: 0;
+	min-width: 320px;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+	font-size: 3.2em;
+	line-height: 1.1;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	background-color: #1a1a1a;
+	cursor: pointer;
+	transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+	border-color: #646cff;
 }
 
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+	outline: 4px auto -webkit-focus-ring-color;
 }
 
 ul {
-  list-style: none;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  padding-inline-start: 0;
+	list-style: none;
+	margin-block-start: 0;
+	margin-block-end: 0;
+	padding-inline-start: 0;
 }
 
-header, footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+header,
+footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 footer span {
-  font-size: 0.75rem;
-  color: rgb(182, 182, 182);
+	font-size: 0.75rem;
+	color: rgb(182, 182, 182);
 }
 
-header ul, .article-details {
-  display: flex;
-  justify-content: space-evenly;
+header ul,
+.article-details {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.header-nav {
+  gap: 1rem;
+  align-items: center;
 }
 
 .article-card {
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid gray;
-  margin: 1rem 0;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid gray;
+	margin: 1rem 0;
 }
 
 .article-card h2 {
-  margin: 1rem;
+	margin: 1rem;
 }
 
 .article-details {
-  font-size: 0.75rem;
-  color: rgb(185, 185, 185);
+	font-size: 0.75rem;
+	color: rgb(185, 185, 185);
 }
 
 .article-card a h2:hover {
-  color: white;
+	color: white;
 }
 
 img {
-  width: 100%;
+	width: 100%;
 }
 
 .comment-card {
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid gray;
-  margin: 1rem 0;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid gray;
+	margin: 1rem 0;
 }
 
 .comment-details {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  font-size: 0.75rem;
-  color: rgb(185, 185, 185);
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	font-size: 0.75rem;
+	color: rgb(185, 185, 185);
 }
 
 .total-comments {
-  background-color: rgb(56, 56, 224);
-  border-radius: 50%;
-  padding: 2px 5px;
-  font-size: 0.7rem;
-  position: relative;
-  top: -0.75rem;
-  font-weight: 400;
-  letter-spacing: -1px;
+	background-color: rgb(56, 56, 224);
+	border-radius: 50%;
+	padding: 2px 5px;
+	font-size: 0.7rem;
+	position: relative;
+	top: -0.75rem;
+	font-weight: 400;
+	letter-spacing: -1px;
+}
+
+.voting-ui {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+button.voted {
+	background-color: blue;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form input {
+  padding: 0.75rem 1rem;
+  width: 300px;
+}
+
+.header-user {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.header-user img {
+  width: 35px;
 }
